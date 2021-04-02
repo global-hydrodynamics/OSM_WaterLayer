@@ -1,28 +1,20 @@
 # OSM water layer scripts
 The scripts to generate OSM Water Layer
+http://hydro.iis.u-tokyo.ac.jp/~yamadai/OSM_water/index.html
+
+Dai Yamazaki, 2nd April 2021
 
 ## Requirement
-Install OSMOSIS and GDAL.
-The scripts are written for MacOS. Modifications might be needed.
+Install OSMOSIS, GDAL, Fortran.
+The scripts are written for MacOS. Modifications might be needed for other environment.
 
 ## Procedures
-### Download the original planet.pbf data
-Download the latest planet.pbf data from the official or mirror site.
-https://wiki.openstreetmap.org/wiki/Planet.osm
+### [1] Prepare "sea mask" from OSM water-polygons
+Work in OSM_sea/ directory.
+Detailed procedure written in ReadMe.md in OSM_sea/
 
-Place the planet.pbf in extract_water/osm directory.
-
-### Compile Fortran codes
-Edit Makefile in extract_water/src/ if needed.
-Compile all source codes by make all.
-
-### Pre processing of planet.pbf data.
-Pre-processing scripts are automatically executed by a01-preser.sh.
-
-First, the planet.pbf file should be modified to generate water layers, by extracting/rejecting some features. Then, some essential ID is modified and the new pbf file planet-mod.pbf is generated
-
-1. u01-notag_relationship.sh
-2. u02-tag_relations.sh
-3. u03-ways.sh
-4. u04-extract-id.sh
-5. u05-merge_planet.sh
+### [2] Create OSM water layer
+Make a project directory (sample 2021Feb/ to process the OSM planet data at that time)
+Go to extract_water/ directory.
+Make osm/ directory, and download the latest planet.pbf from servers.
+Then, follow the instruction in ReadMe.md  in 2021Feb directory.
