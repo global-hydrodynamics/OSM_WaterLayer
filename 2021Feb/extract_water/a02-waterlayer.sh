@@ -1,7 +1,6 @@
 #!/bin/sh
 
-# link data
-./s00-link.sh
+./s00-link 
 
 # Extract water-related layers
 ./s01-extract_water.sh                           > log_s01.txt 2> err_s01.txt  
