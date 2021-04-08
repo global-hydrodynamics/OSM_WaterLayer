@@ -1,7 +1,7 @@
 # OSM water layer scripts
 The scripts to generate OSM Water Layer
 
-http://hydro.iis.u-tokyo.ac.jp/~yamadai/OSM_water/index.html
+http://hydro.iis.u-tokyo.ac.jp/~yamadai/OSM_water/
 
 Dai Yamazaki, 2nd April 2021
 
