@@ -16,8 +16,15 @@ do
   do
   	echo $WEST $SOUTH
     ./t05-gdal.sh $WEST $SOUTH &
+
+    NUM=`ps aux | grep $USER | grep t05-gdal.sh | wc -l | awk '{print $1}'`
+    while [ $NUM -gt 18 ];
+    do
+      sleep 1
+      NUM=`ps aux | grep $USER | grep t05-gdal.sh | wc -l | awk '{print $1}'`
+    done
+
   SOUTH=`expr $SOUTH + 5`
   done
-  wait
 WEST=`expr $WEST + 5`
 done

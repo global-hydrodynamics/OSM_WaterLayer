@@ -1,4 +1,6 @@
 #!/bin/sh
+export JAVACMD_OPTIONS="-Xmx4G -Djava.io.tmpdir=./java.tmp"
+
 OPTIONS='-overwrite --config OSM_CONFIG_FILE ./osmconf_water.ini -skipfailures ' 
 mkdir -p shp
 mkdir -p ./osm/lonlat-tmp
@@ -37,11 +39,12 @@ do
     WATTAG='<tag k="natural" v="water"/>'
     RESTAG='<tag k="landuse" v="reservoir"/>'
 
-    cat $OSMFILE | sed -e "s#${WATTAG}#TTWAT#" | grep -v '<tag k="natural"' | grep -v '<tag k="tunnel"' | sed -e "s#TTWAT#${WATTAG}#" | sed -e "s#${RESTAG}#TTRES#" | grep -v '<tag k="landuse"' | sed -e "s#TTRES#${RESTAG}#" > $TMPFILE
+    cat $OSMFILE | sed -e "s#${WATTAG}#TTWAT#" | grep -v '<tag k="natural"' | sed -e "s#TTWAT#${WATTAG}#" | sed -e "s#${RESTAG}#TTRES#" | grep -v '<tag k="landuse"' | grep -v '<tag k="tunnel"' | sed -e "s#TTRES#${RESTAG}#" > $TMPFILE
     ogr2ogr $OPTIONS -f "ESRI Shapefile" $SHPDIR $TMPFILE &
+
+
   SOUTH=`expr $SOUTH + 5`
   done
   wait
 WEST=`expr $WEST + 5`
 done
-wait

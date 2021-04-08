@@ -1,10 +1,11 @@
 #!/bin/sh
 
-ln -sf ../../OSM_sea/5deg   coast
+### GDAL OSM configulation file
+cp      ../../osmconf_water.ini   .
 
+### OSM water poligon (sea mask)
 ln -sf ../extract_water/coast
 ln -sf ../extract_water/shp_coast
-
 
 mkdir -p osm
 cd osm
