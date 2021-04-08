@@ -1,5 +1,6 @@
 #!/bin/sh
 
+USER=`whoami`
 mkdir -p 5deg
 
 LON_ORI=-180

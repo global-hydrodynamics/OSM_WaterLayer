@@ -1,5 +1,7 @@
 #!/bin/sh
 
+USER=`whoami`
+
 LON_ORI=-180
 LON_END=180
 LAT_ORI=-60
@@ -32,11 +34,11 @@ do
       rm -f $OFILE
       gdalwarp $PROJ $COMP   $IFILE $OFILE &
   
-      NUM=`ps -U yamadai | grep gdalwarp  | wc -l | awk '{print $1}'`
+      NUM=`ps aux | grep $USER  | grep gdalwarp  | wc -l | awk '{print $1}'`
       while [ $NUM -gt 16 ];
       do
         sleep 2
-        NUM=`ps -U yamadai | grep gdalwarp | wc -l | awk '{print $1}'`
+        NUM=`ps aux | grep $USER  | grep gdalwarp | wc -l | awk '{print $1}'`
       done
     
     fi

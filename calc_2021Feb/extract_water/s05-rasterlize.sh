@@ -1,6 +1,7 @@
 #!/bin/sh
 export JAVACMD_OPTIONS="-Xmx4G -Djava.io.tmpdir=./java.tmp"
 
+USER=`whoami`
 mkdir -p 5deg
 
 LON_ORI=$1

@@ -1,4 +1,5 @@
 #!/bin/sh
+USER=`whoami`
 
 #link base topography data
 ln -sf ~yamadai/work/data/DEM/MERIT_DEM/v11     MERIT_DEM
@@ -30,11 +31,11 @@ do
     if [ -f ./MERIT_DEM/${CNAME}.bin ]; then
       ./t04-draw.sh $WEST $SOUTH &
 
-      NUM=`ps -U yamadai | grep ./t04-draw.sh | wc -l | awk '{print $1}'`
+      NUM=`ps aux | grep $USER | grep ./t04-draw.sh | wc -l | awk '{print $1}'`
       while [ $NUM -gt 8 ];
       do
         sleep 1
-        NUM=`ps -U yamadai | grep ./t04-draw.sh | wc -l | awk '{print $1}'`
+        NUM=`ps aux | grep $USER | grep ./t04-draw.sh | wc -l | awk '{print $1}'`
       done
 
     fi
