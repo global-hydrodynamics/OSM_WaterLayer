@@ -25,17 +25,22 @@ The scripts are written for MacOS. Modifications might be needed for other envir
 - Edit copy.sh, and execute it.
 
 === OSM PBF file ===
+
 <Original> **extract_water/osm/water/planet-all.osm.pbf**
+
 <Copied as> **OSM_WaterLayer.pbf**
+
 This is "derived data" and thus should be distributed under ODbL 1.0 license.
 
 === Rasterized data ===
+
 <Original> GeoTiff: **merge_water/tif/**
+
 <Copied as> GeoTiff: **OSM_WaterLayer_tif**
 
 These data are "creative works"(not derived data) according to the OpenStreetMap guideline. So we can put any license. Now this is distributed under CC-BY 4.0.
 
-#### Water classification in rasterlized data
+### [4] Water classification in rasterlized data
 Below values are used in rasterlized data.
 0: land
 1: ocean
