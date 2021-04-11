@@ -30,15 +30,22 @@ The scripts are written for MacOS. Modifications might be needed for other envir
 - Edit copy_hires.sh, and execute it.
 
 === OSM PBF file ===
+
 <Original> **extract_water/osm/water/planet-all.osm.pbf**
+
 <Copied as> **OSM_WaterLayer.pbf**
+
 This is "derived data" and thus should be distributed under ODbL 1.0 license.
 
 === Rasterized data ===
+
 <Original>
+
 Binary: **merge_water/5deg/**
 GeoTiff: **merge_water/tif/**
+
 <Copied as>
+
 Binary: **5deg/**
 GeoTiff: **OSM_WaterLayer_tif**
 
